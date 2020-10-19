@@ -10,7 +10,7 @@
         <el-col :span="24">
           <el-menu :default-active="this.$route.path" router class="el-menu-demo" mode="horizontal" @select="handleSelect">
             <el-menu-item index="/">首页</el-menu-item>
-            <el-menu-item index="2">教程</el-menu-item>
+            <el-menu-item index="/tutorial">教程</el-menu-item>
             <el-menu-item index="/api">API</el-menu-item>
             <el-menu-item index="/github">GitHub</el-menu-item>
             <el-menu-item index="/support-feedback">支持/反馈</el-menu-item>

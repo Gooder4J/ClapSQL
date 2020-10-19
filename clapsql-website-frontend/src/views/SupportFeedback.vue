@@ -19,7 +19,7 @@ import AlipayQRCode from "@/assets/Huang Alipay QRcode.jpg"
 import WechatQRCode from "@/assets/Huang Wechat QR code.jpg"
 import Page from "@/components/Page";
 export default {
-  name: "SuportFeedback",
+  name: "SupportFeedback",
   components: {Page},
   data: function () {
     return {
