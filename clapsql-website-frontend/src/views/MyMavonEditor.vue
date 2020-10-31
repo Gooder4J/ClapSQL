@@ -70,29 +70,31 @@ export default {
   methods: {
     //监听markdown变化
     change(value, render) {
-      this.html = render;
-      this.blogInfo.blogMdContent = value;
-      this.blogInfo.blogContent = render;
+      console.log(value)
+      console.log(render)
+      // this.html = render;
+      // this.blogInfo.blogMdContent = value;
+      // this.blogInfo.blogContent = render;
     },
+
     // 保存的回调函数: value表示原文，render表示渲染后的html
     save(value, render){
       console.log(value)
       console.log(render)
-      // this.$axios.get("api/test").then(function (response) {
-      //   console.log("response"+response)
-      // }).catch(function (error) {
-      //   console.log(error)
-      // })
-      // this.$axios({
-      //   method: 'get',
-      //   url: 'http://localhost:8081/test',
-      //   headers: {'Access-Control-Allow-Origin': '*'}
-      // })
-      // axios默认发送application/json格式
-      this.$axios.post("http://localhost:8081/api/save-text", {"text" : value}).then((response) => {
-        console.log("response : "+ response)
+
+      //axios默认发送application/json格式
+      this.$axios.post("/api/save-article", {"content" : value}).then(() => {
+        // 弹出窗口，表示保存成功
+        this.$message({
+          message: '保存成功',
+          type: 'success',
+          duration: 1000
+        })
+      }).catch(() => {
+        this.$message.error('保存失败，请重新尝试')
       })
     },
+
     //上传图片接口pos 表示第几个图片
     handleEditorImgAdd(pos , $file){
       var formdata = new FormData();
